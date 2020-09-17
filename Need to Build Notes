@@ -1,0 +1,7 @@
+TODO
++ Create migrations
++ Create Models with Relationships
++ Plan out routes for controller (restful conventions)
++ Build controlleractions and views simultaneously
++
++

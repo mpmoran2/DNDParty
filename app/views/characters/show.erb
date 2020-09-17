@@ -1,0 +1,23 @@
+<h1>Character: <%= @character.name %></h1>
+<a href="/characters/<%= @character.id%>/edit">Edit</a>
+
+<h2> Created by: <h2>
+<h3> Party: </h3><br>
+
+<img src="<%= @character.image %>" alt="character">
+
+<ul>
+    <li>Age: <%= @character.age %></li>
+    <li>Height: <%= @character.height %></li>
+    <li>Race: <%= @character.race %></li>
+    <li>Job: <%= @character.job %></li>
+    <li>Level: <%= @character.level %></li>
+    <li>Alignment: <%= @character.alignment %></li>
+    <li>Backgroung: <%= @character.bg %></li>
+    <li>Bio: <%= @character.bio %></li>
+</ul><br><br>
+
+<form action="/characters/<%= @character.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">Delete Character</button>
+</form>

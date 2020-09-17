@@ -1,0 +1,9 @@
+<h1>Here are your Adventurers</h1>
+
+<a href="/characters/new">Add New Character</a><br><br>
+
+<% @characters.each do |character| %>
+    <h2><a href="/characters/<%= character.id%>"><%= character.name%></a></h2>
+    <img src="<%= character.image %>" alt="character">
+    <a href="/characters/<%= character.id%>/edit">Edit</a>
+<% end %>

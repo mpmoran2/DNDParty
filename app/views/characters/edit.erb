@@ -1,0 +1,30 @@
+<h1>Edit <%= @character.name %>'s Information</h1>
+<p><%= @error %></p>
+<form action="/characters/<%=@character.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label>Name</label>
+    <input type="text" name="character[name]" value="<%= @character.name %>"><br>
+    <label>Player Name</label>
+    <input type="text" name="character[username]"><br>
+    <label>Image</label>
+    <input type="text" name="character[image]"><br>
+    <label>Age</label>
+    <input type="text" name="character[age]"><br>
+    <label>Height</label>
+    <input type="text" name="character[height]"><br>
+    <label>Race</label>
+    <input type="text" name="character[race]" value="<%= @character.race %>"><br>
+    <label>Job</label>
+    <input type="text" name="character[job]" value="<%= @character.job %>"><br>
+    <label>Level</label>
+    <input type="text" name="character[level]"><br>
+    <label>Alignment</label>
+    <input type="text" name="character[alignment]"><br>
+    <label>Background</label>
+    <input type="text" name="character[bg]"><br>
+    <label>Party</label>
+    <input type="text" name="character[party_title]"><br>
+    <label>Biography</label>
+    <textarea name="character[bio]"></textarea>
+    <button type="submit">Update Character</button>
+</form>

@@ -1,0 +1,29 @@
+<h1>Create Your New characters</h1>
+<p><%= @error %></p>
+<form action="/characters" method="post">
+    <label>Name</label>
+    <input type="text" name="name"><br>
+    <label>Player Name</label>
+    <input type="text" name="username"><br>
+    <label>Image</label>
+    <input type="text" name="image"><br>
+    <label>Age</label>
+    <input type="text" name="age"><br>
+    <label>Height</label>
+    <input type="text" name="height"><br>
+    <label>Race</label>
+    <input type="text" name="race"><br>
+    <label>Job</label>
+    <input type="text" name="job"><br>
+    <label>Level</label>
+    <input type="text" name="level"><br>
+    <label>Alignment</label>
+    <input type="text" name="alignment"><br>
+    <label>Background</label>
+    <input type="text" name="bg"><br>
+    <label>Party</label>
+    <input type="text" name="party_title"><br>
+    <label>Biography</label>
+    <textarea name="bio"></textarea>
+    <button type="submit">Add Character</button>
+</form>
