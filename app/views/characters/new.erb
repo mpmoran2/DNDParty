@@ -2,161 +2,171 @@
 <h1>Create Your New Character</h1>
 <p><%= @error %></p>
 
-<form action="/characters/<%=@character.id%>" method="post">
-<input type="hidden" name="_method" value="patch">
-<label>Is this an NPC or a Playable Character?</label><br>
-<input type="radio" id="npc" name="character[npc_pc]" value="NPC">
-<label for="npc">NPC</label>
-<input type="radio" id="playable" name="character[npc_pc]" value="Playable">
-<label for="playable">Playable</label><br><br> 
-    
-<table style="text-align:left">
-    <tr>
-        <th><label>Name</label><br>
-        <input type="text" name="name"></th>
-        <th><label>Age</label><br>
-        <input type="text" name="age"></th>
-        <th><label>Gender</label><br>
-        <input type="text" name="gender"></th>
-        <th><label>Height</label><br>
-        <input type="text" name="height"></th>
-    </tr>
-    <tr>    
-        <th><label for="race">Race</label><br>
-        <select id="race" name="race">
-            <option value="Aasimar">Aasimar</option>
-            <option value="Arakocra">Arakocra</option>
-            <option value="Bugbear">Bugbear</option>
-            <option value="Centaur">Centaur</option>       
-            <option value="Dragonborn">Dragonborn</option>        
-            <option value="Dwarf">Dwarf</option>
-            <option value="Elf">Elf</option>
-            <option value="Firbolg">Firbolg</option>
-            <option value="Genasi">Genasi</option>
-            <option value="Gith">Gith</option>
-            <option value="Gnome">Gnome</option>
-            <option value="Goblin">Goblin</option>
-            <option value="Goliath">Goliath</option>
-            <option value="Grung">Grung</option>
-            <option value="Half-Elf">Half-Elf</option>
-            <option value="Half-Orc">Half-Orc</option>
-            <option value="Halfling">Halfling</option>
-            <option value="Hobgoblin">Hobgoblin</option>
-            <option value="Human">Human</option>
-            <option value="Kalashtar">Kalashtar</option>
-            <option value="Kenku">Kenku</option>
-            <option value="Kobold">Kobold</option>
-            <option value="Leonin">Leonin</option>
-            <option value="Lizardfolk">Lizardfolk</option>
-            <option value="Locathah">Locathah</option>
-            <option value="Loxodon">Loxodon</option>
-            <option value="Minotaur">Minotaur</option>
-            <option value="Satyr">Satyr</option>
-            <option value="Shifter">Shifter</option>
-            <option value="Simic Hybrid">Simic Hybrid</option>
-            <option value="Tabaxi">Tabaxi</option>
-            <option value="Tiefling">Tiefling</option>
-            <option value="Tortle">Tortle</option>
-            <option value="Triton">Triton</option>
-            <option value="Vedalken">Vedalken</option>
-            <option value="Verdan">Verdan</option>
-            <option value="Warforged">Warforged</option>
-            <option value="Yuan-ti Pureblood">Yuan-ti Pureblood</option>
-            <option value="Other(Homebrew)">Other(Homebrew)</option>
-            <option value="npr">Other(NPC)</option>
-        </select></th>
-        <th><label>Subrace</label><br>
-        <input type="text" name="subrace"></th>
-        <th><label for="job">Class</label><br>
-        <select id="job" name="job">
-            <option value= "Artificer">Artificer</option>
-            <option value= "Barbarian">Barbarian</option>
-            <option value= "Bard">Bard</option>
-            <option value= "Blood">Blood Hunter</option>
-            <option value= "Cleric">Cleric</option>
-            <option value= "Druid">Druid</option>
-            <option value= "Fighter">Fighter</option>
-            <option value= "Monk">Monk</option>
-            <option value= "Paladin">Paladin</option>
-            <option value= "Ranger">Ranger</option>
-            <option value= "Rogue">Rogue</option>
-            <option value= "Sorcerer">Sorcerer</option>
-            <option value= "Warlock">Warlock</option>
-            <option value= "Wizard">Wizard</option>
-        </select></th>       
-        <th><label>SubClass</label><br>
-        <input type="text" name="subjob"></th>
-    </tr>
-    <tr>    
-        <th><label>Deity</label><br>
-        <input type="text" name="deity" ></th>    
-        <th><label>Alignment</label><br>
-        <input type="text" name="alignment"></th>
-        <th><label>Background</label><br>
-        <input type="text" name="bg"></th>
-        <th><label>Level</label><br>
-        <input type="text" name="level"></th>
-</table><br>        
-<table style="text-align:left">       
-    <tr>
-        <th><label>Strength</label>
-        <input type="text" name="str" value="<%= @character.str %>"></th>
-        <th><label>Dexterity</label>
-        <input type="text" name="dex" value="<%= @character.dex %>"></th>
-        <th><label>Constitution</label>
-        <input type="text" name="con" value="<%= @character.con %>"></th>
-    </tr>
-    <tr>    
-        <th><label>Intelligence</label>
-        <input type="text" name="int" value="<%= @character.int %>"></th>
-        <th><label>Wisdom</label>
-        <input type="text" name="wis" value="<%= @character.wis %>"></th>
-        <th><label>Charisma</label>
-        <input type="text" name="cha" value="<%= @character.cha %>"></th>
-</table><br>
-<table style="text-align:left">
-    <tr>
-        <th><input type="checkbox" id="skill1" name="skill1" value="Acrobatics(DEX)">
-        <label for="skill1">Acrobatics(Dex)</label></th>
-        <th><input type="checkbox" id="skill2" name="skill2" value="Animal Handling(WIS)">
-        <label for="skill2">Animal Handling(WIS)</label></th>
-        <th><input type="checkbox" id="skill3" name="skill3" value="Arcana(INT)">
-        <label for="skill3">Arcana(INT)</label></th>
-        <th><input type="checkbox" id="skill4" name="skill4" value="Athletics(STR)">
-        <label for="skill4">Athletics(STR)</label></th>
-        <th><input type="checkbox" id="skill5" name="skill5" value="Deception(CHA)">
-        <label for="skill5">Deception(CHA)</label></th>
-    </tr>
-    <tr>
-        <th><input type="checkbox" id="skill6" name="skill6" value="History(INT)">
-        <label for="skill6">History(INT)</label></th>        
-        <th><input type="checkbox" id="skill7" name="skill7" value="Insight(WIS)">        
-        <label for="skill7">Insight(WIS)</label></th>
-        <th><input type="checkbox" id="skill8" name="skill8" value="Intimidation(CHA)">
-        <label for="skill8">Intimidation(CHA)</label></th>
-        <th><input type="checkbox" id="skill9" name="skill9" value="Investigation(INT)">
-        <label for="cskill9">Investigation(INT)</label></th>
-        <th><input type="checkbox" id="skill10" name="skill10" value="Medicine(WIS)">
-        <label for="skill10">Medicine(WIS)</label></th>
-    </tr>
-    <tr>    
-        <th><input type="checkbox" id="skill11" name="skill11" value="Nature(INT)">
-        <label for="skill11">Nature(INT)</label></th>
-        <th><input type="checkbox" id="skill12" name="skill12" value="Perception(WIS)">
-        <label for="skill12">Perception(WIS)</label></th>    
-        <th><input type="checkbox" id="skill13" name="skill13" value="Performance(CHA)">
-        <label for="skill13">Performance(CHA)</label>
-        <th><input type="checkbox" id="skill14" name="skill14" value="Persuasion(CHA)">
-        <label for="skill14">Persuasion(CHA)</label>
-        <th><input type="checkbox" id="skill15" name="skill15" value="Religion(INT)">
-        <label for="skill15">Religion(INT)</label>
-    </tr>
-    <tr>
-        <th><input type="checkbox" id="skill16" name="skill16" value="Slight of Hand(DEX)">
-        <label for="skill16">Slight of Hand(DEX)</label>
-        <th><input type="checkbox" id="skill17" name="skill17" value="Stealth(DEX)">
-        <label for="skill17">Stealth(DEX)</label>
-        <th><input type="checkbox" id="skill18" name="skill18" value="Survival(WIS)">
-        <label for="skill18">Survival(WIS)</label>
-    </tr>
-</table><br>
+<form action="/characters" method="post">
+    <label>Is this an NPC or a Playable Character?</label><br>
+    <input type="radio" id="npc" name="npc_pc" value="NPC">
+    <label for="npc">NPC</label>
+    <input type="radio" id="playable" name="npc_pc" value="Playable">
+    <label for="playable">Playable</label><br><br>
+
+ <h2>The Basics</h2>
+    <table style="text-align:left">
+        <tr>
+            <th><label>Name</label><br>
+            <input type="text" name="name"></th>
+            <th><label>Age</label><br>
+            <input type="text" name="age"></th>
+            <th><label>Gender</label><br>
+            <input type="text" name="gender"></th>
+            <th><label>Height</label><br>
+            <input type="text" name="height"></th>
+        </tr>
+        <tr>    
+            <th><label for="race">Race</label><br>
+                <select id="race" name="race">
+                    <option value="Aasimar">Aasimar</option>
+                    <option value="Arakocra">Arakocra</option>
+                    <option value="Bugbear">Bugbear</option>
+                    <option value="Centaur">Centaur</option>       
+                    <option value="Dragonborn">Dragonborn</option>        
+                    <option value="Dwarf">Dwarf</option>
+                    <option value="Elf">Elf</option>
+                    <option value="Firbolg">Firbolg</option>
+                    <option value="Genasi">Genasi</option>
+                    <option value="Gith">Gith</option>
+                    <option value="Gnome">Gnome</option>
+                    <option value="Goblin">Goblin</option>
+                    <option value="Goliath">Goliath</option>
+                    <option value="Grung">Grung</option>
+                    <option value="Half-Elf">Half-Elf</option>
+                    <option value="Half-Orc">Half-Orc</option>
+                    <option value="Halfling">Halfling</option>
+                    <option value="Hobgoblin">Hobgoblin</option>
+                    <option value="Human">Human</option>
+                    <option value="Kalashtar">Kalashtar</option>
+                    <option value="Kenku">Kenku</option>
+                    <option value="Kobold">Kobold</option>
+                    <option value="Leonin">Leonin</option>
+                    <option value="Lizardfolk">Lizardfolk</option>
+                    <option value="Locathah">Locathah</option>
+                    <option value="Loxodon">Loxodon</option>
+                    <option value="Minotaur">Minotaur</option>
+                    <option value="Satyr">Satyr</option>
+                    <option value="Shifter">Shifter</option>
+                    <option value="Simic Hybrid">Simic Hybrid</option>
+                    <option value="Tabaxi">Tabaxi</option>
+                    <option value="Tiefling">Tiefling</option>
+                    <option value="Tortle">Tortle</option>
+                    <option value="Triton">Triton</option>
+                    <option value="Vedalken">Vedalken</option>
+                    <option value="Verdan">Verdan</option>
+                    <option value="Warforged">Warforged</option>
+                    <option value="Yuan-ti Pureblood">Yuan-ti Pureblood</option>
+                    <option value="Other(Homebrew)">Other(Homebrew)</option>
+                    <option value="npr">Other(NPC)</option>
+                </select></th>
+            <th><label>Subrace</label><br>
+            <input type="text" name="subrace"></th>
+            <th><label for="job">Class</label><br>
+                <select id="job" name="job">
+                    <option value= "Artificer">Artificer</option>
+                    <option value= "Barbarian">Barbarian</option>
+                    <option value= "Bard">Bard</option>
+                    <option value= "Blood">Blood Hunter</option>
+                    <option value= "Cleric">Cleric</option>
+                    <option value= "Druid">Druid</option>
+                    <option value= "Fighter">Fighter</option>
+                    <option value= "Monk">Monk</option>
+                    <option value= "Paladin">Paladin</option>
+                    <option value= "Ranger">Ranger</option>
+                    <option value= "Rogue">Rogue</option>
+                    <option value= "Sorcerer">Sorcerer</option>
+                    <option value= "Warlock">Warlock</option>
+                    <option value= "Wizard">Wizard</option>
+                </select></th>       
+            <th><label>SubClass</label><br>
+            <input type="text" name="subjob"></th>
+        </tr>
+        <tr>    
+            <th><label>Deity</label><br>
+            <input type="text" name="deity" ></th>    
+            <th><label>Alignment</label><br>
+            <input type="text" name="alignment"></th>
+            <th><label>Background</label><br>
+            <input type="text" name="bg"></th>
+            <th><label>Level</label><br>
+            <input type="text" name="level"></th>
+    </table><br>
+
+    <h2>Their Stats</h2>
+    <table style="text-align:left">       
+        <tr>
+            <th><label>Strength</label>
+            <input type="text" name="str"</th>
+            <th><label>Dexterity</label>
+            <input type="text" name="dex"</th>
+            <th><label>Constitution</label>
+            <input type="text" name="con"</th>
+        </tr>
+        <tr>    
+            <th><label>Intelligence</label>
+            <input type="text" name="int"></th>
+            <th><label>Wisdom</label>
+            <input type="text" name="wis"></th>
+            <th><label>Charisma</label>
+            <input type="text" name="cha"></th>
+        </tr>
+    </table><br>
+
+ <h2>Their Skills</h2>
+    <table style="text-align:left">
+        <tr>
+            <th><input type="checkbox" id="skill1" name="skill1" value="Acrobatics(DEX)">
+            <label for="skill1">Acrobatics(Dex)</label></th>
+            <th><input type="checkbox" id="skill2" name="skill2" value="Animal Handling(WIS)">
+            <label for="skill2">Animal Handling(WIS)</label></th>
+            <th><input type="checkbox" id="skill3" name="skill3" value="Arcana(INT)">
+            <label for="skill3">Arcana(INT)</label></th>
+            <th><input type="checkbox" id="skill4" name="skill4" value="Athletics(STR)">
+            <label for="skill4">Athletics(STR)</label></th>
+            <th><input type="checkbox" id="skill5" name="skill5" value="Deception(CHA)">
+            <label for="skill5">Deception(CHA)</label></th>
+        </tr>
+        <tr>
+            <th><input type="checkbox" id="skill6" name="skill6" value="History(INT)">
+            <label for="skill6">History(INT)</label></th>        
+            <th><input type="checkbox" id="skill7" name="skill7" value="Insight(WIS)">        
+            <label for="skill7">Insight(WIS)</label></th>
+            <th><input type="checkbox" id="skill8" name="skill8" value="Intimidation(CHA)">
+            <label for="skill8">Intimidation(CHA)</label></th>
+            <th><input type="checkbox" id="skill9" name="skill9" value="Investigation(INT)">
+            <label for="cskill9">Investigation(INT)</label></th>
+            <th><input type="checkbox" id="skill10" name="skill10" value="Medicine(WIS)">
+            <label for="skill10">Medicine(WIS)</label></th>
+        </tr>
+        <tr>    
+            <th><input type="checkbox" id="skill11" name="skill11" value="Nature(INT)">
+            <label for="skill11">Nature(INT)</label></th>
+            <th><input type="checkbox" id="skill12" name="skill12" value="Perception(WIS)">
+            <label for="skill12">Perception(WIS)</label></th>    
+            <th><input type="checkbox" id="skill13" name="skill13" value="Performance(CHA)">
+            <label for="skill13">Performance(CHA)</label>
+            <th><input type="checkbox" id="skill14" name="skill14" value="Persuasion(CHA)">
+            <label for="skill14">Persuasion(CHA)</label>
+            <th><input type="checkbox" id="skill15" name="skill15" value="Religion(INT)">
+            <label for="skill15">Religion(INT)</label>
+        </tr>
+        <tr>
+            <th><input type="checkbox" id="skill16" name="skill16" value="Slight of Hand(DEX)">
+            <label for="skill16">Slight of Hand(DEX)</label>
+            <th><input type="checkbox" id="skill17" name="skill17" value="Stealth(DEX)">
+            <label for="skill17">Stealth(DEX)</label>
+            <th><input type="checkbox" id="skill18" name="skill18" value="Survival(WIS)">
+            <label for="skill18">Survival(WIS)</label>
+        </tr>   
+    </table><br>
+
+    <input type="submit">Create Character</input> 
+</form>    
+
+

@@ -3,8 +3,7 @@ class CharacterController < ApplicationController
         require_login
     end 
 
-    get '/characters/new' do 
-        @characters = Character.all
+    get '/characters/new' do         
         erb :'/characters/new'
     end 
 
@@ -33,7 +32,7 @@ class CharacterController < ApplicationController
         erb :'characters/all'
     end 
    
-    get '/characters/:id/edit' do
+    get '/characters/:id/edit' do        
         @character = Character.find(params[:id])
         erb :'/characters/edit'
     end
