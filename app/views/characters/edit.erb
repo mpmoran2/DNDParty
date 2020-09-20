@@ -1,30 +1,172 @@
-<h1>Edit <%= @character.name %>'s Information</h1>
+<!DOCTYPE html>
+<h1 style="text-align:center">Edit <%= @character.name %>'s Information</h1>
 <p><%= @error %></p>
+
 <form action="/characters/<%=@character.id%>" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <label>Name</label>
-    <input type="text" name="character[name]" value="<%= @character.name %>"><br>
-    <label>Player Name</label>
-    <input type="text" name="character[username]"><br>
-    <label>Image</label>
-    <input type="text" name="character[image]"><br>
-    <label>Age</label>
-    <input type="text" name="character[age]"><br>
-    <label>Height</label>
-    <input type="text" name="character[height]"><br>
-    <label>Race</label>
-    <input type="text" name="character[race]" value="<%= @character.race %>"><br>
-    <label>Job</label>
-    <input type="text" name="character[job]" value="<%= @character.job %>"><br>
-    <label>Level</label>
-    <input type="text" name="character[level]"><br>
-    <label>Alignment</label>
-    <input type="text" name="character[alignment]"><br>
-    <label>Background</label>
-    <input type="text" name="character[bg]"><br>
-    <label>Party</label>
-    <input type="text" name="character[party_title]"><br>
-    <label>Biography</label>
-    <textarea name="character[bio]"></textarea>
+<input type="hidden" name="_method" value="patch">
+<label>Is this an NPC or a Playable Character?</label><br>
+<input type="radio" id="npc" name="character[npc_pc]" value="NPC">
+<label for="npc">NPC</label>
+<input type="radio" id="playable" name="character[npc_pc]" value="Playable">
+<label for="playable">Playable</label><br><br> 
+    
+<table style="text-align:left">
+    <tr>
+        <th><label>Name</label><br>
+        <input type="text" name="character[name]" value="<%= @character.name %>"></th>
+        <th><label>Age</label><br>
+        <input type="text" name="character[age]" value="<%= @character.age %>"></th>
+        <th><label>Gender</label><br>
+        <input type="text" name="character[gender]" value="<%= @character.gender %>"></th>
+        <th><label>Height</label><br>
+        <input type="text" name="character[height]" value="<%= @character.height %>"></th>
+    </tr>
+    <tr>    
+        <th><label for="race">Race</label><br>
+        <select id="race" name="character[race]">
+            <option value="Aasimar">Aasimar</option>
+            <option value="Arakocra">Arakocra</option>
+            <option value="Bugbear">Bugbear</option>
+            <option value="Centaur">Centaur</option>       
+            <option value="Dragonborn">Dragonborn</option>        
+            <option value="Dwarf">Dwarf</option>
+            <option value="Elf">Elf</option>
+            <option value="Firbolg">Firbolg</option>
+            <option value="Genasi">Genasi</option>
+            <option value="Gith">Gith</option>
+            <option value="Gnome">Gnome</option>
+            <option value="Goblin">Goblin</option>
+            <option value="Goliath">Goliath</option>
+            <option value="Grung">Grung</option>
+            <option value="Half-Elf">Half-Elf</option>
+            <option value="Half-Orc">Half-Orc</option>
+            <option value="Halfling">Halfling</option>
+            <option value="Hobgoblin">Hobgoblin</option>
+            <option value="Human">Human</option>
+            <option value="Kalashtar">Kalashtar</option>
+            <option value="Kenku">Kenku</option>
+            <option value="Kobold">Kobold</option>
+            <option value="Leonin">Leonin</option>
+            <option value="Lizardfolk">Lizardfolk</option>
+            <option value="Locathah">Locathah</option>
+            <option value="Loxodon">Loxodon</option>
+            <option value="Minotaur">Minotaur</option>
+            <option value="Satyr">Satyr</option>
+            <option value="Shifter">Shifter</option>
+            <option value="Simic Hybrid">Simic Hybrid</option>
+            <option value="Tabaxi">Tabaxi</option>
+            <option value="Tiefling">Tiefling</option>
+            <option value="Tortle">Tortle</option>
+            <option value="Triton">Triton</option>
+            <option value="Vedalken">Vedalken</option>
+            <option value="Verdan">Verdan</option>
+            <option value="Warforged">Warforged</option>
+            <option value="Yuan-ti Pureblood">Yuan-ti Pureblood</option>
+            <option value="Other(Homebrew)">Other(Homebrew)</option>
+            <option value="npr">Other(NPC)</option>
+        </select></th>
+        <th><label>Subrace</label><br>
+        <input type="text" name="character[subrace]" value="<%= @character.subrace %>"></th>
+        <th><label for="job">Class</label><br>
+        <select id="job" name="character[job]">
+            <option value= "Artificer">Artificer</option>
+            <option value= "Barbarian">Barbarian</option>
+            <option value= "Bard">Bard</option>
+            <option value= "Blood">Blood Hunter</option>
+            <option value= "Cleric">Cleric</option>
+            <option value= "Druid">Druid</option>
+            <option value= "Fighter">Fighter</option>
+            <option value= "Monk">Monk</option>
+            <option value= "Paladin">Paladin</option>
+            <option value= "Ranger">Ranger</option>
+            <option value= "Rogue">Rogue</option>
+            <option value= "Sorcerer">Sorcerer</option>
+            <option value= "Warlock">Warlock</option>
+            <option value= "Wizard">Wizard</option>
+        </select></th>       
+        <th><label>SubClass</label><br>
+        <input type="text" name="character[subjob]" value="<%= @character.subjob %>"></th>
+    </tr>
+    <tr>    
+        <th><label>Deity</label><br>
+        <input type="text" name="character[deity]" value="<%= @character.deity %>"></th>    
+        <th><label>Alignment</label><br>
+        <input type="text" name="character[alignment]" value="<%= @character.alignment %>"></th>
+        <th><label>Background</label><br>
+        <input type="text" name="character[bg]" value="<%= @character.bg %>"></th>
+        <th><label>Level</label><br>
+        <input type="text" name="character[level]" value="<%= @character.level%>"></th>
+</table><br>        
+<table style="text-align:left">       
+    <tr>
+        <th><label>Strength</label>
+        <input type="text" name="character[str]" value="<%= @character.str %>"></th>
+        <th><label>Dexterity</label>
+        <input type="text" name="character[dex]" value="<%= @character.dex %>"></th>
+        <th><label>Constitution</label>
+        <input type="text" name="character[con]" value="<%= @character.con %>"></th>
+    </tr>
+    <tr>    
+        <th><label>Intelligence</label>
+        <input type="text" name="character[int]" value="<%= @character.int %>"></th>
+        <th><label>Wisdom</label>
+        <input type="text" name="character[wis]" value="<%= @character.wis %>"></th>
+        <th><label>Charisma</label>
+        <input type="text" name="character[cha]" value="<%= @character.cha %>"></th>
+</table><br>
+<table style="text-align:left">
+    <tr>
+        <th><input type="checkbox" id="character[skill1]" name="character[skill1]" value="Acrobatics(DEX)">
+        <label for="character[skill1]">Acrobatics(Dex)</label></th>
+        <th><input type="checkbox" id="character[skill2]" name="character[skill2]" value="Animal Handling(WIS)">
+        <label for="character[skill2]">Animal Handling(WIS)</label></th>
+        <th><input type="checkbox" id="character[skill13]" name="character[skill3]" value="Arcana(INT)">
+        <label for="character[skill3]">Arcana(INT)</label></th>
+        <th><input type="checkbox" id="character[skill4]" name="character[skill4]" value="Athletics(STR)">
+        <label for="character[skill4]">Athletics(STR)</label></th>
+        <th><input type="checkbox" id="character[skill5]" name="character[skill5]" value="Deception(CHA)">
+        <label for="character[skill5]">Deception(CHA)</label></th>
+    </tr>
+    <tr>
+        <th><input type="checkbox" id="character[skilll6]" name="character[skill6]" value="History(INT)">
+        <label for="character[skill6]">History(INT)</label></th>        
+        <th><input type="checkbox" id="character[skill7]" name="character[skill7]" value="Insight(WIS)">        
+        <label for="character[skill7]">Insight(WIS)</label></th>
+        <th><input type="checkbox" id="character[skill8]" name="character[skill8]" value="Intimidation(CHA)">
+        <label for="character[skill8]">Intimidation(CHA)</label></th>
+        <th><input type="checkbox" id="character[skill9]" name="character[skill9]" value="Investigation(INT)">
+        <label for="character[skill9]">Investigation(INT)</label></th>
+        <th><input type="checkbox" id="character[skill10]" name="character[skill10]" value="Medicine(WIS)">
+        <label for="character[skill10]">Medicine(WIS)</label></th>
+    </tr>
+    <tr>    
+        <th><input type="checkbox" id="character[skill11]" name="character[skill11]" value="Nature(INT)">
+        <label for="character[skill11]">Nature(INT)</label></th>
+        <th><input type="checkbox" id="character[skill12]" name="character[skill12]" value="Perception(WIS)">
+        <label for="character[skill12]">Perception(WIS)</label></th>    
+        <th><input type="checkbox" id="character[skill3]" name="character[skill13]" value="Performance(CHA)">
+        <label for="character[skill13]">Performance(CHA)</label>
+        <th><input type="checkbox" id="character[skill14]" name="character[skill14]" value="Persuasion(CHA)">
+        <label for="character[skill14]">Persuasion(CHA)</label>
+        <th><input type="checkbox" id="character[skill15]" name="character[skill15]" value="Religion(INT)">
+        <label for="character[skill15]">Religion(INT)</label>
+    </tr>
+    <tr>
+        <th><input type="checkbox" id="character[skill16]" name="character[skill16]" value="Slight of Hand(DEX)">
+        <label for="character[skill16]">Slight of Hand(DEX)</label>
+        <th><input type="checkbox" id="character[skill17]" name="character[skill17]" value="Stealth(DEX)">
+        <label for="scharacter[skill17]">Stealth(DEX)</label>
+        <th><input type="checkbox" id="character[skill18]" name="character[skill18]" value="Survival(WIS)">
+        <label for="character[skill18]">Survival(WIS)</label>
+    </tr>
+</table><br>
+    <label>Biography</label><br>
+    <textarea name="character[bio]" value="<%= @character.bio %>" rows="18" cols="135"></textarea><br>
     <button type="submit">Update Character</button>
+</form><br><br>
+
+<form action="/characters/<%= @character.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <p>Do you wish to wipe this Character from Exsistance? <button type="submit">Yes</button></p>
+         
 </form>

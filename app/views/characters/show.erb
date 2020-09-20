@@ -1,23 +1,93 @@
-<h1>Character: <%= @character.name %></h1>
-<a href="/characters/<%= @character.id%>/edit">Edit</a>
 
-<h2> Created by: <h2>
-<h3> Party: </h3><br>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-<img src="<%= @character.image %>" alt="character">
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
 
-<ul>
-    <li>Age: <%= @character.age %></li>
-    <li>Height: <%= @character.height %></li>
-    <li>Race: <%= @character.race %></li>
-    <li>Job: <%= @character.job %></li>
-    <li>Level: <%= @character.level %></li>
-    <li>Alignment: <%= @character.alignment %></li>
-    <li>Backgroung: <%= @character.bg %></li>
-    <li>Bio: <%= @character.bio %></li>
-</ul><br><br>
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+    <h1 >Character: <%= @character.name %></h1>    
+    <h3 >Type: <%= @character.npc_pc %></h3><br>
+    <div>
+<div class="row">
+  <div class="column">
+    <dl>
+        <dt><b>Stats:</b></dt>
+        <dd>- Strength: <%= @character.str %></dd>
+        <dd>- Dexterity: <%= @character.dex %></dd>
+        <dd>- Constitution: <%= @character.con %></dd>
+        <dd>- Intelligence: <%= @character.int %></dd>
+        <dd>- Wisdom: <%= @character.wis %></dd>
+        <dd>- Charisma: <%= @character.cha %></dd>
+    </dl><br>
 
-<form action="/characters/<%= @character.id%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit">Delete Character</button>
-</form>
+    <dl>
+        <dt><b>Age:</b> <%= @character.age %></dt>
+        <dt><b>Height:</b> <%= @character.height %></dt>
+        <dt><b>Race:</b> <%= @character.race %></dt>
+        <dd>- <b>SubRace:</b> <%= @character.subrace %></dd>
+        <dt><b>Class:</b> <%= @character.job %></dt>
+        <dd>- <b>SubClass:</b> <%= @character.subjob %></dd>
+        <dt><b>Deity:</b> <%= @character.deity %></dt>
+        <dt><b>Level:</b> <%= @character.level %></dt>
+        <dt><b>Alignment:</b> <%= @character.alignment %></dt>
+        <dt><b>Background:</b> <%= @character.bg %></dt>  
+    </dl><br>
+    <p><b>Bio:</b> <%= @character.bio %></p>
+   </div>
+<div class="column">
+    <dl>
+        <dt><b>Currently Skilled In:</b></dt>
+         
+        <dd>- <%= @character.skill1 %></dd>            
+        <dd>- <%= @character.skill2 %></dd>
+        <dd>- <%= @character.skill3 %></dd>
+        <dd>- <%= @character.skill4 %></dd>
+        <dd>- <%= @character.skill5 %></dd>
+        <dd>- <%= @character.skill6 %></dd>
+        <dd>- <%= @character.skill7 %></dd>
+        <dd>- <%= @character.skill8 %></dd>
+        <dd>- <%= @character.skill9 %></dd>
+        <dd>- <%= @character.skill10 %></dd>
+        <dd>- <%= @character.skill11 %></dd>
+        <dd>- <%= @character.skill12 %></dd>
+        <dd>- <%= @character.skill13 %></dd>
+        <dd>- <%= @character.skill14 %></dd>
+        <dd>- <%= @character.skill15 %></dd>
+        <dd>- <%= @character.skill16 %></dd>
+        <dd>- <%= @character.skill17 %></dd>
+        <dd>- <%= @character.skill18 %></dd>   
+      
+    </dl><br>
+     
+</div>
+</div>
+</body>
+</html>
+
+
+
+    
+      
+        
+      
+
+      
+   

@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<h1 style="text-alight:center">Look At Everyone's Characters!</h1><br>
+
+<% @characters.each do |character| %>
+        <h2><a href="/characters/<%= character.id%>"><%= character.name%></a> <i><b>(<%= character.race%>)</b></i> <%= character.job%> </h2>          
+<% end %>

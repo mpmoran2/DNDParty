@@ -11,32 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200916223739) do
+ActiveRecord::Schema.define(version: 20200918232353) do
 
   create_table "characters", force: :cascade do |t|
-    t.text    "name"
-    t.string  "username"
-    t.string  "image",       default: "https://image.shutterstock.com/image-vector/20-sided-20d-dice-line-600w-355147958.jpg"
+    t.string  "name"
+    t.string  "npc_pc"
     t.integer "age"
+    t.string  "gender"
     t.string  "height"
     t.string  "race"
+    t.string  "subrace"
     t.string  "job"
-    t.integer "level"
-    t.string  "alignment"
+    t.string  "subjob"
     t.string  "bg"
-    t.text    "party_title"
+    t.string  "alignment"
+    t.string  "deity"
+    t.integer "level"
+    t.integer "str"
+    t.integer "dex"
+    t.integer "con"
+    t.integer "int"
+    t.integer "wis"
+    t.integer "cha"
+    t.string  "skill1"
+    t.string  "skill2"
+    t.string  "skill3"
+    t.string  "skill4"
+    t.string  "skill5"
+    t.string  "skill6"
+    t.string  "skill7"
+    t.string  "skill8"
+    t.string  "skill9"
+    t.string  "skill10"
+    t.string  "skill11"
+    t.string  "skill12"
+    t.string  "skill13"
+    t.string  "skill14"
+    t.string  "skill15"
+    t.string  "skill16"
+    t.string  "skill17"
+    t.string  "skill18"
     t.text    "bio"
-  end
-
-  create_table "parties", force: :cascade do |t|
-    t.string "title"
-    t.string "dungeon_master"
-    t.string "player1"
-    t.string "player2"
-    t.string "player3"
-    t.string "player4"
-    t.string "player5"
-    t.string "player6"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

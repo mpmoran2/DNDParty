@@ -1,9 +1,11 @@
-<h1>Here are your Adventurers</h1>
-
-<a href="/characters/new">Add New Character</a><br><br>
+<!DOCTYPE html>
+<h1>Hew Are Your Characters!</h1><br>
+<a href="/characters/new">Add New Character</a><br><br><br>
 
 <% @characters.each do |character| %>
-    <h2><a href="/characters/<%= character.id%>"><%= character.name%></a></h2>
-    <img src="<%= character.image %>" alt="character">
-    <a href="/characters/<%= character.id%>/edit">Edit</a>
+    <%if character.user && session[:user_id] == character.user.id %>
+        <h2><a href="/characters/<%= character.id%>"><%= character.name%></a> <i><b>(<%= character.race%>)</b></i> <%= character.job%> </h2>
+        <p><b><%= character.npc_pc%></b><a href ="/characters/<%= character.id %>/edit">Edit</a></p>
+                
+    <% end %>        
 <% end %>

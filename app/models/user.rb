@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base 
-    has_many :character 
-    has_many :party, through: :character
+    has_secure_password
+
+    validates :username, :password_digest, presence: true
+    validates :username, uniqueness: true
+
+    has_many :characters 
 end

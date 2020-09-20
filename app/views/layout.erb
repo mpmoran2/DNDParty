@@ -14,14 +14,21 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div><a href="/characters">Characters</a></div>
-    <div><a href="/login">LogIn</a></div>
-    <div><a href="/logout">Log Out</a></div>
+    <% if logged_in? %>
+      <div class="topnav">
+        
+        <a href="/profile">Profile<a>
+        <a href="/characters">Your Characters</a>
+        <a href="/world_characters">World Characters</a>
+        <a href="/logout">Log Out</a>
+      </div>
+    <% end %>
     </div>
     <div class="wrapper">
     <div>
       
         <%= yield %>
+      
 
       <footer class="branding">
         <small>&copy; 2020 <strong>PartyDnd</strong></small>
