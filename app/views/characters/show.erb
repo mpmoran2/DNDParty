@@ -23,61 +23,134 @@
 }
 </style>
 </head>
-    <h1 >Character: <%= @character.name %></h1>    
-    <h3 >Type: <%= @character.npc_pc %></h3><br>
+    <h1 >Character: <%= @character.name %></h1>   
+    <% if @character.npc_pc != nil %> 
+      <h3 >Type: <%= @character.npc_pc %></h3><br>
+    <%end%>
     <div>
 <div class="row">
   <div class="column">
     <dl>
         <dt><b>Stats:</b></dt>
-        <dd>- Strength: <%= @character.str %></dd>
-        <dd>- Dexterity: <%= @character.dex %></dd>
-        <dd>- Constitution: <%= @character.con %></dd>
-        <dd>- Intelligence: <%= @character.int %></dd>
-        <dd>- Wisdom: <%= @character.wis %></dd>
-        <dd>- Charisma: <%= @character.cha %></dd>
+        <% if @character.str != nil %>
+          <dd>- Strength: <%= @character.str %></dd>
+        <%end%>
+        <% if @character.dex != nil %>
+          <dd>- Dexterity: <%= @character.dex %></dd>
+        <%end%>
+        <% if @character.con != nil %>
+          <dd>- Constitution: <%= @character.con %></dd>
+        <%end%>
+        <% if @character.int != nil %>
+          <dd>- Intelligence: <%= @character.int %></dd>
+        <%end%>
+        <% if @character.wis != nil %>
+          <dd>- Wisdom: <%= @character.wis %></dd>
+        <%end%>
+        <% if @character.cha != nil %>
+          <dd>- Charisma: <%= @character.cha %></dd>
+        <%end%>
     </dl><br>
 
     <dl>
-        <dt><b>Age:</b> <%= @character.age %></dt>
-        <dt><b>Height:</b> <%= @character.height %></dt>
-        <dt><b>Race:</b> <%= @character.race %></dt>
-        <dd>- <b>SubRace:</b> <%= @character.subrace %></dd>
-        <dt><b>Class:</b> <%= @character.job %></dt>
-        <dd>- <b>SubClass:</b> <%= @character.subjob %></dd>
-        <dt><b>Deity:</b> <%= @character.deity %></dt>
-        <dt><b>Level:</b> <%= @character.level %></dt>
-        <dt><b>Alignment:</b> <%= @character.alignment %></dt>
-        <dt><b>Background:</b> <%= @character.bg %></dt>  
+        <% if @character.age != nil %>
+          <dt><b>Age:</b> <%= @character.age %></dt>
+        <%end%>
+        <% if @character.height != nil %>
+          <dt><b>Height:</b> <%= @character.height %></dt>
+        <%end%>
+        <% if @character.gender != nil %>
+          <dt><b>Gender:</b> <%= @character.gender %></dt>
+        <%end%>
+        <% if @character.race != nil %>
+          <dt><b>Race:</b> <%= @character.race %></dt>
+        <%end%>
+        <% if @character.subrace != nil %>
+          <dd>- <b>SubRace:</b> <%= @character.subrace %></dd>
+        <%end%>
+        <% if @character.job != nil %>
+          <dt><b>Class:</b> <%= @character.job %></dt>
+        <%end%>
+        <% if @character.subjob != nil %>
+          <dd>- <b>SubClass:</b> <%= @character.subjob %></dd>
+        <%end%>
+        <% if @character.deity != nil %>
+          <dt><b>Deity:</b> <%= @character.deity %></dt>
+        <%end%>
+        <% if @character.level != nil %>
+          <dt><b>Level:</b> <%= @character.level %></dt>
+        <%end%>
+        <% if @character.alignment != nil %>
+          <dt><b>Alignment:</b> <%= @character.alignment %></dt>
+        <%end%>
+        <% if @character.bg != nil %>
+          <dt><b>Background:</b> <%= @character.bg %></dt>
+        <%end%>  
     </dl><br>
-    <p><b>Bio:</b> <%= @character.bio %></p>
-   </div>
-<div class="column">
+  
+    <% if @character.bio != nil %>
+      <p><b>Bio:</b> <%= @character.bio %></p>
+    <%end%>
+  </div>
+  <div class="column">
     <dl>
         <dt><b>Currently Skilled In:</b></dt>
-         
-        <dd>- <%= @character.skill1 %></dd>            
-        <dd>- <%= @character.skill2 %></dd>
+        <% if @character.skill1 != nil %>
+          <dd>- <%= @character.skill1 %></dd>   
+        <% end %>
+        <% if @character.skill2 != nil %>         
+          <dd>- <%= @character.skill2 %></dd>
+        <% end %>
+        <% if @character.skill3 != nil %> 
         <dd>- <%= @character.skill3 %></dd>
+        <% end %>
+        <% if @character.skill4 != nil %> 
         <dd>- <%= @character.skill4 %></dd>
+        <% end %>
+        <% if @character.skill5 != nil %> 
         <dd>- <%= @character.skill5 %></dd>
+        <% end %>
+        <% if @character.skill6 != nil %> 
         <dd>- <%= @character.skill6 %></dd>
+        <% end %>
+        <% if @character.skill7 != nil %> 
         <dd>- <%= @character.skill7 %></dd>
+        <% end %>
+        <% if @character.skill8 != nil %> 
         <dd>- <%= @character.skill8 %></dd>
+        <% end %>
+        <% if @character.skill9 != nil %> 
         <dd>- <%= @character.skill9 %></dd>
+        <% end %>
+        <% if @character.skill10 != nil %> 
         <dd>- <%= @character.skill10 %></dd>
+        <% end %>
+        <% if @character.skill11 != nil %> 
         <dd>- <%= @character.skill11 %></dd>
+        <% end %>
+        <% if @character.skill12 != nil %> 
         <dd>- <%= @character.skill12 %></dd>
+        <% end %>
+        <% if @character.skill13 != nil %> 
         <dd>- <%= @character.skill13 %></dd>
+        <% end %>
+        <% if @character.skill14 != nil %> 
         <dd>- <%= @character.skill14 %></dd>
+        <% end %>
+        <% if @character.skill15 != nil %> 
         <dd>- <%= @character.skill15 %></dd>
+        <% end %>
+        <% if @character.skill16 != nil %> 
         <dd>- <%= @character.skill16 %></dd>
+        <% end %>
+        <% if @character.skill17 != nil %> 
         <dd>- <%= @character.skill17 %></dd>
-        <dd>- <%= @character.skill18 %></dd>   
-      
+        <% end %>
+        <% if @character.skill18 != nil %> 
+        <dd>- <%= @character.skill18 %></dd>
+        <%end%>
     </dl><br>
-     
-</div>
+  </div>
 </div>
 </body>
 </html>
