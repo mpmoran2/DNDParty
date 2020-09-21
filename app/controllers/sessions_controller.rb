@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
             @error = "Please fill in you information"
             erb :'users/login'
         else
-            if user = User.find_by(username: params[:username], password_digest: params[:password])
+            user = User.find_by(:username => params[:username])
+            if  user && user.authenticate(params[:password])
                 session[:user_id] = user.id
                 redirect '/profile'
             else
