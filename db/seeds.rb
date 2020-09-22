@@ -1,6 +1,6 @@
-User.create(id: 1, username: 'Vectorbb', password_digest: 'heangy')
-User.create(id: 2, username: 'LaceAnxiety', password_digest: 'immabarf')
-User.create(id: 3, username: 'Catbirb', password_digest: 'depressioninsession')
+User.create(id: 1, username: 'Vectorbb', password: 'heangy')
+User.create(id: 2, username: 'LaceAnxiety', password: 'immabarf')
+User.create(id: 3, username: 'Catbirb', password: 'depressioninsession')
 
 Character.create(id: 1, name: 'Vector', race: 'Warforged', job: 'Paladin', user_id: 1)
 Character.create(id: 2, name: 'Bunny', race: 'Human', job: 'Wizard', user_id: 2)
