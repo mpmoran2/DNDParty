@@ -2,14 +2,17 @@
 <h1 style="text-align:center">Edit <%= @character.name %>'s Information</h1>
 <p><%= @error %></p>
 
+
+
 <form action="/characters/<%=@character.id%>" method="post">
 <input type="hidden" name="_method" value="patch">
-<label>Is this an NPC or a Playable Character?</label><br>
-<input type="radio" id="npc" name="character[npc_pc]" value="NPC">
-<label for="npc">NPC</label>
-<input type="radio" id="playable" name="character[npc_pc]" value="Playable">
-<label for="playable">Playable</label><br><br> 
-    
+<%if @character.user && session[:user_id] == @character.user.id %>
+    <label>Is this an NPC or a Playable Character?</label><br>
+    <input type="radio" id="npc" name="character[npc_pc]" value="NPC">
+    <label for="npc">NPC</label>
+    <input type="radio" id="playable" name="character[npc_pc]" value="Playable">
+    <label for="playable">Playable</label><br><br> 
+ 
 <table style="text-align:left">
     <tr>
         <th><label>Name</label><br>
@@ -160,13 +163,17 @@
         <label for="character[skill18]">Survival(WIS)</label>
     </tr>
 </table><br>
+    
     <label>Biography</label><br>
     <textarea name="character[bio]" value="<%= @character.bio %>" rows="18" cols="135"></textarea><br>
-    <button type="submit">Update Character</button>
+    
+        <button type="submit">Update Character</button>
+    <%end%>
 </form><br><br>
 
 <form action="/characters/<%= @character.id%>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <p>Do you wish to wipe this Character from Exsistance? <button type="submit">Yes</button></p>
-         
+    <%if @character.user && session[:user_id] == @character.user.id %>
+        <p>Do you wish to wipe this Character from Exsistance? <button type="submit">Yes</button></p>
+     <%end%>    
 </form>
