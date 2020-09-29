@@ -2,8 +2,6 @@
 <h1 style="text-align:center">Edit <%= @character.name %>'s Information</h1>
 <p><%= @error %></p>
 
-
-
 <form action="/characters/<%=@character.id%>" method="post">
 <input type="hidden" name="_method" value="patch">
 <%if @character.user && session[:user_id] == @character.user.id %>

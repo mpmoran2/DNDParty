@@ -2,7 +2,7 @@ class CharacterController < ApplicationController
     before do
         require_login
     end 
-    #Create
+    
     get '/characters/new' do         
         erb :'/characters/new'
     end 
@@ -16,7 +16,7 @@ class CharacterController < ApplicationController
             erb :'/characters/new'
         end
     end     
-    #Render
+    
     get '/characters' do
         @characters = Character.all.reverse
         erb :'characters/index'
@@ -31,10 +31,15 @@ class CharacterController < ApplicationController
         @characters = Character.all.reverse
         erb :'characters/all'
     end 
-   #update
+   
     get '/characters/:id/edit' do        
         @character = Character.find(params[:id])
-        erb :'/characters/edit'      
+        if @character.user && session[:user_id] == @character.user.id 
+            erb :'/characters/edit'      
+        else 
+            @error = "Oops! You didn't create this Character. No Edit for you!"
+            erb :'/characters/edit'
+        end
     end
 
     patch '/characters/:id' do
@@ -48,7 +53,6 @@ class CharacterController < ApplicationController
         end
     end
 
-#delete
     delete '/characters/:id' do
         character = Character.find(params[:id])
         character.destroy 
