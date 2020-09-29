@@ -25,4 +25,10 @@ class ApplicationController < Sinatra::Base
       redirect '/login' 
     end 
   end   
+
+  def not_yours(character)
+    if session[:user_id] != character.user.id 
+      redirect "/world_characters"
+    end
+  end 
 end

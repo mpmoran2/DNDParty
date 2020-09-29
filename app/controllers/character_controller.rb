@@ -18,7 +18,7 @@ class CharacterController < ApplicationController
     end     
     
     get '/characters' do
-        @characters = Character.all.reverse
+        @characters = current_user.characters
         erb :'characters/index'
     end
          
@@ -29,6 +29,7 @@ class CharacterController < ApplicationController
 
     get '/world_characters' do 
         @characters = Character.all.reverse
+        @user = current_user
         erb :'characters/all'
     end 
    
@@ -44,6 +45,7 @@ class CharacterController < ApplicationController
 
     patch '/characters/:id' do
         character = Character.find(params[:id])
+        not_yours(character)
         if !params["character"]["name"].empty? && !params["character"]["race"].empty? && !params["character"]["job"].empty?
             character.update(params[:character])     
             redirect "/characters/#{params[:id]}"                                      
@@ -55,6 +57,7 @@ class CharacterController < ApplicationController
 
     delete '/characters/:id' do
         character = Character.find(params[:id])
+        not_yours(character)
         character.destroy 
         redirect "/characters"
     end         
