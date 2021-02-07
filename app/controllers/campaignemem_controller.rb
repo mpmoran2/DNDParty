@@ -1,0 +1,3 @@
+class CampaignmemController < ApplicationController
+      
+end

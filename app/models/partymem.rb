@@ -1,6 +1,6 @@
 class Partymem < ActiveRecord::Base 
-    belongs_to :users
-    has_many 
+    belongs_to :users through :characters
+   
 
     validates_presence_of 
 end 
