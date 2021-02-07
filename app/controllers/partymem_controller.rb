@@ -1,0 +1,3 @@
+class PartymemController < ApplicationController
+      
+end

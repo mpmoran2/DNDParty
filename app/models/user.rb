@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
     validates :username, uniqueness: true
 
     has_many :characters 
+    has_many :parties
+    has_many :partymems through :party
 end
